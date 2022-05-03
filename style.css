@@ -1,5 +1,14 @@
 body {
-    background-color: hsl(128, 19%, 16%);
+    /* background-color: hsl(128, 19%, 16%); */
+    background-image: linear-gradient(hsl(128, 19%, 16%), hsl(128, 29%, 40%));
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: center;
+    height: 97vh;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .winnerboard {
@@ -14,7 +23,7 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 7vw;
+    font-size: 9vh;
     color: hsl(182, 68%, 50%);
     font-family: 'Brush Script MT', sans-serif;
     margin: 0;
@@ -42,8 +51,7 @@ img {
 }
 
 h2 {
-    font-size: 2em;
-    font-size: 3vw;
+    font-size: 2vw;
     color: hsl(182, 68%, 50%);
     font-family: 'Apple Chancery', cursive;
 }
@@ -55,8 +63,8 @@ h2 {
     grid-gap: 0.2rem;
     justify-items: center;
     align-items: center;
-    width: 15vw;
-    height: 15vw;
+    width: 10vw;
+    height: 10vw;
     min-width: 150px;
     min-height: 150px;
     margin: 0 2vw;
@@ -66,12 +74,13 @@ h2 {
 }
 
 .circle {
-    width: 3vw;
-    height: 3vw;
+    width: 2vw;
+    height: 2vw;
     min-width: 2rem;
     min-height: 2rem;
     margin: 2%;
     background-color: hsl(0, 0%, 100%);
+    transition: background-color 0.1s;
     border-radius: 50%;
     font-family: 'Brush Script MT', sans-serif;
 }
@@ -83,7 +92,7 @@ h2 {
 footer {
     position: absolute;
     width: 100vw;
-    bottom: 1vh;
+    bottom: 5vh;
     text-align: center;
     font-family: 'Brush Script MT', sans-serif;
     font-size: 1.5vw;
@@ -97,10 +106,10 @@ footer {
 
 .button-73 {
   appearance: none;
-  background-color: #FFFFFF;
+  background-color: #1fc33b;
   border-radius: 40em;
   border-style: none;
-  box-shadow: #ADCFFF 0 -12px 6px inset;
+  /* box-shadow: #ADCFFF 0 -12px 6px inset; */
   box-sizing: border-box;
   color: #000000;
   cursor: pointer;
@@ -117,7 +126,6 @@ footer {
   text-decoration: none;
   transition: all .15s;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
 }
 
