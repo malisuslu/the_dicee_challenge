@@ -3,6 +3,8 @@ body {
 }
 
 .winnerboard {
+    display: flex;
+    flex-direction: row;
     margin-top: 3vh;
     width: 100vw;
     justify-content: center;
@@ -20,6 +22,7 @@ h1 {
 
 img {
     width: 6%;
+    min-width: 3.5rem;
     height: auto;
 }
 
@@ -139,7 +142,12 @@ footer > p {
         font-size: 5rem;
     }
 
+    h2 {
+        font-size: 2rem;
+    }
+
     footer {
         font-size: 1rem;
     }
+
 }
