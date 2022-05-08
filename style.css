@@ -1,14 +1,13 @@
 body {
-    /* background-color: hsl(128, 19%, 16%); */
-    background-image: linear-gradient(hsl(128, 19%, 16%), hsl(128, 29%, 40%));
-    background-size: cover;
+    background: linear-gradient(hsl(128, 19%, 16%), hsl(128, 29%, 40%));
     background-repeat: no-repeat;
-    /* background-attachment: fixed; */
     background-position: center;
+    background-size: cover;
     height: 97vh;
     max-width: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .winnerboard {
@@ -27,6 +26,18 @@ h1 {
     color: hsl(182, 68%, 50%);
     font-family: 'Brush Script MT', sans-serif;
     margin: 0;
+}
+
+.clb-img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: url("clb.gif") repeat top;
+    background-size: auto 50vh;
+    z-index: -1;
+    visibility: hidden;
 }
 
 img {

@@ -1,7 +1,4 @@
 function roll_the_dices() { 
-    
-    let all_circles = document.querySelectorAll(".circle");
-    console.log(all_circles);
 
     for (let i = 0; i < all_circles.length; i++) {
         all_circles[i].style.backgroundColor = "hsl(0, 56%, 49%)";
@@ -10,11 +7,8 @@ function roll_the_dices() {
     player1 = Math.floor(Math.random() * 6) + 1;
     player2 = Math.floor(Math.random() * 6) + 1;
 
-    let circle1 =document.querySelectorAll(`#p1 .circle`);
-    let circle2 =document.querySelectorAll("#p2 .circle");
-
     function colorDot(arr, circle) { 
-        return arr.map(x => circle[x]).map(x => x.style.backgroundColor = "white");
+        return arr.map(x => circle[x].style.backgroundColor = "white");
      }
 
     function diceFace(player, circle) {
@@ -38,32 +32,73 @@ function roll_the_dices() {
                 colorDot([0,1,2,6,7,8], circle);
                 break;
         }
-     }
+    }
 
-     diceFace(player1, circle1);
-     diceFace(player2, circle2);
+    diceFace(player1, circle1);
+    diceFace(player2, circle2);
      
 };
-
-let player1 = 0;
-let player2 = 0;
 
 function winner() {
     if (player1 > player2) {
         document.querySelector("h1").innerHTML = "<img src='red-flag.png' alt='red_flag'> Player 1 Wins!";
+        document.querySelector(".clb-img").style.visibility = "visible";
+        document.querySelector("#p1").style.transform = "scale(1.2)";
+        document.querySelector("#p1").style.backgroundColor = "hsl(182, 68%, 50%)";
+        document.querySelector("#p2").style.transform = "scale(0.8)";
+        Array.from(circle1).map(x => 
+            x.style.backgroundColor === "white" ?
+            x.style.backgroundColor = "white" :
+            x.style.backgroundColor = "hsl(182, 68%, 50%)");
+
+    /*  for(let i = 0; i < circle1.length; i++) {
+            circle1[i].style.backgroundColor == "white" ? circle1[i].style.backgroundColor = "white" : circle1[i].style.backgroundColor = "hsl(182, 68%, 50%)";
+        } */
     } else if (player2 > player1) {
         document.querySelector("h1").innerHTML = "Player 2 Wins! <img src='red-flag.png' alt='red_flag'>";
+        document.querySelector(".clb-img").style.visibility = "visible";
+        document.querySelector("#p2").style.transform = "scale(1.2)";
+        document.querySelector("#p1").style.transform = "scale(0.8)";
+        document.querySelector("#p2").style.backgroundColor = "hsl(182, 68%, 50%)";
+        Array.from(circle2).map(x => 
+            x.style.backgroundColor === "white" ?
+            x.style.backgroundColor = "white" :
+            x.style.backgroundColor = "hsl(182, 68%, 50%)");
+
+    /*  for(let i = 0; i < circle2.length; i++) {
+            circle2[i].style.backgroundColor == "white" ? circle2[i].style.backgroundColor = "white" : circle2[i].style.backgroundColor = "hsl(182, 68%, 50%)";
+        } */
     } else {
         document.querySelector("h1").innerHTML = "Draw!";
     }
 }
 
-function throw_the_dices() {
-    
-    for (let i = 0; i < 20; i++) {
-        setTimeout(roll_the_dices, 100 * i);
-    };
-    setTimeout(winner, 100 * 20+50);
+function revertWinner() {
+    document.querySelector("h1").innerHTML = "";
+    document.querySelector(".clb-img").style.visibility = "hidden";
+    document.querySelector("#p1").style.transform = "scale(1)";
+    document.querySelector("#p2").style.transform = "scale(1)";
+    document.querySelector("#p1").style.backgroundColor = "hsl(0, 56%, 49%)";
+    document.querySelector("#p2").style.backgroundColor = "hsl(0, 56%, 49%)";
+    Array.from(all_circles).map(x => x.style.backgroundColor = "hsl(0, 56%, 49%)");
 }
+
+function throw_the_dices() {
+    revertWinner();
+    document.querySelector("h1").innerHTML = "Rolling!!!";  
+    for (let i = 0; i < 15; i++) {
+        setTimeout(roll_the_dices, 100 * i);
+        };
+    setTimeout(winner, 100 * 20+50);
+    };
+
+
+let player1 = 0;
+let player2 = 0;
+
+let all_circles = document.querySelectorAll(".circle");
+let circle1 = document.querySelectorAll("#p1 .circle");
+let circle2 = document.querySelectorAll("#p2 .circle");
+
 
 document.querySelector(".button-73").addEventListener("click", throw_the_dices);
