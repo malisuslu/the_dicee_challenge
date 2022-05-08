@@ -43,9 +43,12 @@ function winner() {
     if (player1 > player2) {
         document.querySelector("h1").innerHTML = "<img src='red-flag.png' alt='red_flag'> Player 1 Wins!";
         document.querySelector(".clb-img").style.visibility = "visible";
-        document.querySelector("#p1").style.transform = "scale(1.2)";
+        // document.querySelector("#p1").style.transform = "scale(1.2)";
+        // document.querySelector("#p2").style.transform = "scale(0.8)";
+        // document.querySelectorAll(".square").forEach(x => x.style.transition = "transform 0.5s");
         document.querySelector("#p1").style.backgroundColor = "hsl(182, 68%, 50%)";
-        document.querySelector("#p2").style.transform = "scale(0.8)";
+        document.querySelector("#p1").style.animation = "zoom-in-out 1s ease-in-out infinite";
+        document.querySelector("h1").style.animation = "zoom-in-out 1s ease-in-out infinite";
         Array.from(circle1).map(x => 
             x.style.backgroundColor === "white" ?
             x.style.backgroundColor = "white" :
@@ -57,9 +60,12 @@ function winner() {
     } else if (player2 > player1) {
         document.querySelector("h1").innerHTML = "Player 2 Wins! <img src='red-flag.png' alt='red_flag'>";
         document.querySelector(".clb-img").style.visibility = "visible";
-        document.querySelector("#p2").style.transform = "scale(1.2)";
-        document.querySelector("#p1").style.transform = "scale(0.8)";
+        // document.querySelector("#p2").style.transform = "scale(1.2)";
+        // document.querySelector("#p1").style.transform = "scale(0.8)";
+        // document.querySelectorAll(".square").forEach(x => x.style.transition = "transform 0.5s");
         document.querySelector("#p2").style.backgroundColor = "hsl(182, 68%, 50%)";
+        document.querySelector("#p2").style.animation = "zoom-in-out 1s ease-in-out infinite";
+        document.querySelector("h1").style.animation = "zoom-in-out 1s ease-in-out infinite";
         Array.from(circle2).map(x => 
             x.style.backgroundColor === "white" ?
             x.style.backgroundColor = "white" :
@@ -76,10 +82,10 @@ function winner() {
 function revertWinner() {
     document.querySelector("h1").innerHTML = "";
     document.querySelector(".clb-img").style.visibility = "hidden";
-    document.querySelector("#p1").style.transform = "scale(1)";
-    document.querySelector("#p2").style.transform = "scale(1)";
-    document.querySelector("#p1").style.backgroundColor = "hsl(0, 56%, 49%)";
-    document.querySelector("#p2").style.backgroundColor = "hsl(0, 56%, 49%)";
+    // document.querySelectorAll(".square").forEach(x => x.style.transform = "scale(1)");
+    document.querySelectorAll(".square").forEach(x => x.style.animation = "none");
+    document.querySelector("h1").style.animation = "none";
+    document.querySelectorAll(".square").forEach(x => x.style.backgroundColor = "hsl(0, 56%, 49%)");
     Array.from(all_circles).map(x => x.style.backgroundColor = "hsl(0, 56%, 49%)");
 }
 
